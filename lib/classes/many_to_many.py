@@ -2,10 +2,10 @@ class Article:
     all = []
     
     def __init__(self, author, magazine, title):
-        if not isinstance(author, Author):
-            raise ValueError("Author must be an instance of the Author class.")
-        if not isinstance(magazine, Magazine):
-            raise ValueError("Magazine must be an instance of the Magazine class.")
+        # if not isinstance(author, Author):
+        #     raise ValueError("Author must be an instance of the Author class.")
+        # if not isinstance(magazine, Magazine):
+        #     raise ValueError("Magazine must be an instance of the Magazine class.")
         # if not isinstance(title, str) or not (5 <= len(title) <= 50):
         #     raise ValueError("Title must be a string between 5 and 50 characters.")
         # if hasattr(self, '_title'):
@@ -23,6 +23,24 @@ class Article:
     def title(self, title):
         if isinstance(title, str) and 5 <= len(title) <= 50 and not hasattr(self, "_title") :
             self._title = title    
+    @property
+    def author(self) :
+        return self._author 
+    @author.setter
+    def author(self, author) :
+        if not isinstance(author, Author) :
+            raise ValueError("Author must be an instance of the Author class")
+        else :
+            self._author = author    
+    @property 
+    def magazine(self):
+        return self._magazine 
+    @magazine.setter 
+    def magazine(self, magazine):
+        if not isinstance(magazine, Magazine) :
+            raise ValueError("Magazine must be an instance of the Magazine class")
+        else :
+            self._magazine = magazine                          
 
 class Author:
     def __init__(self, name):
