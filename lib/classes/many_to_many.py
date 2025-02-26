@@ -123,6 +123,13 @@ class Magazine:
             return None
         return max(cls.all, key=lambda magazine: len(magazine.articles()), default=None)
 
+author1 = Author("Ian")
+magazine1 = Magazine("INSYDER", "Entertainment")
+magazine2 = Magazine("Champions Read", "Sports")
+article1 = Article(author1, magazine1, "2024 Best Moments")
+article2 = Article(author1, magazine2, "Top Scorers")
+print(author1.articles)
+print(author1.magazines)
 
 
    
