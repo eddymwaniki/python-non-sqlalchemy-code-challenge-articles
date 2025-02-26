@@ -26,15 +26,20 @@ class Article:
 
 class Author:
     def __init__(self, name):
-        if not isinstance(name, str) or len(name) == 0:
-            raise ValueError("Name must be a non-empty string.")
-        if hasattr(self, '_name'):
-            raise AttributeError("Name cannot be changed after instantiation.")
+        # if not isinstance(name, str) or len(name) == 0:
+        #     raise ValueError("Name must be a non-empty string.")
+        # if hasattr(self, '_name'):
+        #     raise AttributeError("Name cannot be changed after instantiation.")
         self._name = name
         
     @property
     def name(self):
         return self._name
+    @name.setter
+    def name(self,name):
+        if isinstance(name, str) and not len(name) == 0 and not hasattr(self, "_name") :
+            self._name = name
+
     
     def articles(self):
         return [article for article in Article.all if article.author == self]
